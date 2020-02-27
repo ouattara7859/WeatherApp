@@ -1,0 +1,87 @@
+<% include header %>
+
+<div id="register">
+    <% if(locals.viewErrorMsg ){ %>
+        <div class="alert alert-danger" role="alert">
+            <%= locals.viewErrorMsg %>
+        </div>
+    <% } %>
+
+    <% if(locals.viewSuccess ){ %>
+        <div class="alert alert-success" role="alert">
+            <%= locals.viewSuccess %>
+        </div>
+    <% }else{ %>
+        <div class="signup-card">
+            <main class="signup-content">
+        <div id="main">
+    <form method="post" action="/signin">
+        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter firstname" name="firstname" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter lastname" name="lastname" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="Enter email" name="email" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" name="password" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Confirmation Password" name="confirmpassword" required>
+        </div>
+        <br>
+        <div class="col text-center">
+            <button type="submit" class="btn btn-primary">Registration</button>
+        </div>
+        <br>
+    </form>
+        
+    <% } %>
+    <div class="col text-center">
+        Already have an account ? <a href="/" class="link">Login</a>
+    </div>
+</div>
+</main>
+</div>
+</div>
+
+
+<% include footer %>
+
+<style>
+
+#main {
+    width: 490px;
+    height: 550px;
+    border: 1px solid #eee;
+    margin: 100px auto;
+    padding: 30px;
+    background: #6ebbb0;
+    margin-top: 30%;
+    border-radius: 20px;
+}
+
+.signup-card {
+margin-top: -28%;
+
+}
+.signup-content {
+    flex: 2 2;
+display: flex;
+flex-flow: column;
+justify-content: center;
+align-items: center;
+animation: fadein 1.5s ease-in-out;
+min-height: 100%;
+}
+
+
+
+</style>
